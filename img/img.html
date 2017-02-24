@@ -1,0 +1,35 @@
+<html ng-app="ImgApp">
+<head>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  
+</head>
+<body >
+	
+	<div ng-controller="BildController">
+	<div ng-init="bild = 'hund.jpg'">
+	<button ng-click="setBild()">knopf</button>
+	<img ng-src="{{bild}}">
+	</div>
+	
+	<script>
+		angular.module("ImgApp",[]).
+		controller("BildController", function($scope, $rootScope){
+			
+			console.log($rootScope);
+			console.log($scope);
+			setTimeout(function(){
+				console.log($scope.bild);
+
+			}, 0);
+				$scope.setBild = function(){
+				console.log("Klick: " + $scope.bild);
+				console.log("Root: " + $rootScope.bild)
+				$scope.bild = "hund2.jpg";
+				
+
+			}
+		});
+	</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html ng-app="ApplyTest">
+<head>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  
+</head>
+<body>
+	<div ng-controller="TimeCtrl">
+	{{msg}}
+	</div>
+	<script>
+		angular.module("ApplyTest",[]).
+		controller("TimeCtrl",function($scope){
+			
+			$scope.getTimeMsg = function(){
+				setTimeout(function(){
+					$scope.$apply(function(){// hier wird die anonyme funktion aufgerufen und dann  $digest -> malt die Bindings in das HTML
+						$scope.msg = "Bin fertig!!!";
+						console.log("Fertig ");
+					});
+					
+				}, 2000);
+			}
+			$scope.getTimeMsg();
+			});
+	</script>
+</body>
+</html>
